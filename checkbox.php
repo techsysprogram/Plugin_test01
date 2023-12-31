@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
-
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,86 +9,48 @@
     <!--los styles lo pongo aqui porque sinon tendre que ponerlo en los styles aditionales de wordpress o n la carpeta style de de css -->
     
     <style>
-        html,
-        body {
-            font-family: sans-serif;
-            line-height: 1.4;
-        }
-
         * {
-            box-sizing: border-box;
+            /* Change your font family */
+            font-family: sans-serif;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 20px;
-            margin-left: auto;
-            margin-right: auto;
+        .content-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         }
 
+        .content-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
 
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+        }
 
-        .form-check {
-            --border: #d1d5db;
-            --cursor: #89909e;
-            --checked: #e20b0b;
-            --checked-cursor: #fff;
-            position: relative;
-            font-size: 16px;
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
         }
-        
-        .form-check input {
-            position: absolute;
-            opacity: 0;
+
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
         }
-        
-        .form-check label {
-            display: grid;
-            grid-template-columns: 2em 1fr;
-            grid-template-areas: "checkbox label";
-            gap: 0.7em;
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
         }
-        
-        .form-check label::before,
-        .form-check label::after {
-            grid-area: checkbox;
-            content: "";
-            display: block;
-            margin-top: 0.1em;
-        }
-        
-        .form-check label::before {
-            width: 100%;
-            height: 1em;
-            border-radius: 1em;
-            border: solid 1px var(--border);
-            transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
-        }
-        
-        .form-check label::after {
-            position: relative;
-            left: 2px;
-            top: 2px;
-            width: calc(1em - 4px);
-            height: calc(1em - 4px);
-            border-radius: 50%;
-            background-color: var(--cursor);
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        
-        .form-check input:checked + label::before {
-            background-color: var(--checked);
-            border-color: var(--checked);
-        }
-        
-        .form-check input:checked + label::after {
-            background-color: var(--checked-cursor);
-            transform: translateX(1em);
-        }
-        
-        .form-check input:focus + label::before {
-            box-shadow: 0 0 0 0.25em #c4dbf9;
-            border-color: var(--checked);
+
+        .content-table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
         }
 
     </style>
@@ -97,14 +58,37 @@
 
 <body>
     <div class="container">
-        <div class="form-check">
-            <input type="checkbox" id="cgv" name="cgv">
-            <label for="cgv">
-                J'accepte les conditions générales de vente 123 <br>
-                J'accepte les conditions générales de vente 123
-            </label>
-        </div>
+        <table class="content-table">
+            <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Points</th>
+                <th>Team</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Domenic</td>
+                <td>88,110</td>
+                <td>dcode</td>
+            </tr>
+            <tr class="active-row">
+                <td>2</td>
+                <td>Sally</td>
+                <td>72,400</td>
+                <td>Students</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Nick</td>
+                <td>52,300</td>
+                <td>dcode</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
+    
 </body>
-
 </html>
